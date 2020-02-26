@@ -3,6 +3,7 @@ package spring.beans;
 public class ProductDetail {
     private int CategoryID;
     private int Price;
+    private spring.services.ProductService ProductService;
 
     public ProductDetail() {
 

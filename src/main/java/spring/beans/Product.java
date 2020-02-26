@@ -1,12 +1,24 @@
 package spring.beans;
 
+import spring.services.ProductService;
+
 public class Product {
+    private static String productName;
     private int productID;
-    private String productName;
     private ProductDetail detail;
+    private spring.services.ProductService ProductService;
 
     public Product() {
 
+    }
+
+    public Product(ProductService ProductService)
+    {
+        this.ProductService = ProductService;
+    }
+
+    public void setProductService(spring.services.ProductService productService) {
+        ProductService = productService;
     }
 
     public ProductDetail getDetail() {
@@ -25,11 +37,14 @@ public class Product {
         this.productID = productID;
     }
 
-    public String getProductName() {
+    public static String getProductName() {
         return productName;
     }
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public void setProduct(String product) {
     }
 }
