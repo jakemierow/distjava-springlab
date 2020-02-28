@@ -7,14 +7,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <context:component-scan base-package="spring"/>
+    <context:property-placeholder location="classpath:products.properties"/>
 
     <mvc:annotation-driven/>
 
-    <bean id="ProductService" class="spring.services.getProduct">
+    <bean id="getProductService" class="spring.services.getProduct">
     </bean>
 
-    <bean id="products" class="spring.beans.Product">
-        <property name="ProductService" ref="ProductService"/>
+    <bean id="ProductService" class="spring.beans.Product">
+        <property name="ProductService" ref="getProductService"/>
         <property name="product" value="${p1.product}"/>
     </bean>
 
